@@ -24,15 +24,20 @@ async function getMarkdownFiles() {
         let index = 1;
         
         const isGitHubPages = window.location.hostname.includes('github.io');
-        const basePath = isGitHubPages ? '/florinaai.github.io/blog' : '';
+        const basePath = isGitHubPages ? '' : '';
         
         while (true) {
             try {
-                const response = await fetch(`${basePath}/posts/${index}.md`);
-                if (!response.ok) break;
+                const response = await fetch(`${basePath}/blog/posts/${index}.md`);
+                console.log('Fetching:', `${basePath}/blog/posts/${index}.md`);
+                if (!response.ok) {
+                    console.log('Response not ok:', response.status);
+                    break;
+                }
                 files.push(`${index}.md`);
                 index++;
-            } catch {
+            } catch (error) {
+                console.error('Fetch error:', error);
                 break;
             }
         }
@@ -52,11 +57,11 @@ async function loadBlogPosts() {
         const files = await getMarkdownFiles();
         const loadedPosts = [];
         const isGitHubPages = window.location.hostname.includes('github.io');
-        const basePath = isGitHubPages ? '/florinaai.github.io/blog' : '';
+        const basePath = isGitHubPages ? '' : '';
         
         for (const file of files) {
             try {
-                const response = await fetch(`${basePath}/posts/${file}`);
+                const response = await fetch(`${basePath}/blog/posts/${file}`);
                 if (response.ok) {
                     const markdown = await response.text();
                     const [, frontMatter, content] = markdown.split('---');
@@ -100,6 +105,7 @@ async function loadBlogPosts() {
         }
     } catch (error) {
         console.error('Error in loadBlogPosts:', error);
+        blogPostsContainer.innerHTML = '<p class="error-message">Failed to load blog posts. Please try again later.</p>';
     }
 }
 
