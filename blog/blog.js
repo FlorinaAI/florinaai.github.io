@@ -30,13 +30,17 @@ async function getMarkdownFiles() {
     try {
         const files = [];
         let index = 1;
+        const isGitHubPages = window.location.hostname.includes('github.io');
+        const basePath = isGitHubPages ? '/florinaai.github.io' : '';
         
         while (true) {
             try {
-                const response = await fetch(`/blog/posts/${index}.md`);
-                console.log('Fetching:', `/blog/posts/${index}.md`);
+                const url = `${basePath}/blog/posts/${index}.md`;
+                console.log('Trying to fetch:', url);
+                const response = await fetch(url);
+                
                 if (!response.ok) {
-                    console.log('Response not ok:', response.status);
+                    console.log('Response not ok:', response.status, 'for URL:', url);
                     break;
                 }
                 files.push(`${index}.md`);
@@ -47,6 +51,7 @@ async function getMarkdownFiles() {
             }
         }
         
+        console.log('Found files:', files);
         return files;
     } catch (error) {
         console.error('Error getting markdown files:', error);
@@ -66,10 +71,15 @@ async function loadBlogPosts() {
     try {
         const files = await getMarkdownFiles();
         const loadedPosts = [];
+        const isGitHubPages = window.location.hostname.includes('github.io');
+        const basePath = isGitHubPages ? '/florinaai.github.io' : '';
         
         for (const file of files) {
             try {
-                const response = await fetch(`/blog/posts/${file}`);
+                const url = `${basePath}/blog/posts/${file}`;
+                console.log('Loading post:', url);
+                const response = await fetch(url);
+                
                 if (response.ok) {
                     const markdown = await response.text();
                     const [, frontMatter, content] = markdown.split('---');
@@ -80,6 +90,8 @@ async function loadBlogPosts() {
                         meta,
                         date: new Date(meta.date)
                     });
+                } else {
+                    console.log('Failed to load post:', url, 'Status:', response.status);
                 }
             } catch (error) {
                 console.error(`Error loading ${file}:`, error);
@@ -89,7 +101,8 @@ async function loadBlogPosts() {
         loadedPosts.sort((a, b) => b.date - a.date);
         
         if (loadedPosts.length === 0) {
-            blogPostsContainer.innerHTML = '<p class="error-message">No blog posts found.</p>';
+            console.log('No posts were loaded');
+            blogPostsContainer.innerHTML = '<p class="error-message">No blog posts found. Please check the console for details.</p>';
             return;
         }
         
@@ -118,7 +131,7 @@ async function loadBlogPosts() {
         }
     } catch (error) {
         console.error('Error in loadBlogPosts:', error);
-        blogPostsContainer.innerHTML = '<p class="error-message">Failed to load blog posts. Please try again later.</p>';
+        blogPostsContainer.innerHTML = '<p class="error-message">Failed to load blog posts. Please check the console for details.</p>';
     }
 }
 

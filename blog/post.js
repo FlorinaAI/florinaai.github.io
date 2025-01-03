@@ -22,20 +22,25 @@ async function loadPost() {
     try {
         const urlParams = new URLSearchParams(window.location.search);
         const postSlug = urlParams.get('post');
+        const isGitHubPages = window.location.hostname.includes('github.io');
+        const basePath = isGitHubPages ? '/florinaai.github.io' : '';
         
         if (!postSlug) {
-            window.location.href = './';
+            window.location.href = isGitHubPages ? `${basePath}/blog/` : './';
             return;
         }
 
-        const response = await fetch(`/blog/posts/${postSlug}.md`);
-        console.log('Fetching post:', `/blog/posts/${postSlug}.md`);
+        const url = `${basePath}/blog/posts/${postSlug}.md`;
+        console.log('Trying to fetch post:', url);
+        const response = await fetch(url);
         
         if (!response.ok) {
+            console.log('Response not ok:', response.status, 'for URL:', url);
             throw new Error(`Failed to load post: ${response.status}`);
         }
         
         const markdown = await response.text();
+        console.log('Post content loaded successfully');
         
         const [, frontMatter, content] = markdown.split('---');
         if (!frontMatter || !content) {
@@ -56,7 +61,7 @@ async function loadPost() {
         
         const backButton = document.createElement('button');
         backButton.className = 'pages-button back-button';
-        backButton.onclick = () => window.location.href = './';
+        backButton.onclick = () => window.location.href = isGitHubPages ? `${basePath}/blog/` : './';
         backButton.textContent = 'Back to Blog';
         blogHeader.appendChild(backButton);
         
