@@ -14,13 +14,14 @@ async function loadPost() {
     try {
         const urlParams = new URLSearchParams(window.location.search);
         const postSlug = urlParams.get('post');
+        const basePath = window.location.pathname.includes('github.io') ? '/florinaai.github.io' : '';
         
         if (!postSlug) {
-            window.location.href = '/blog/';
+            window.location.href = `${basePath}/blog/`;
             return;
         }
 
-        const response = await fetch(`/blog/posts/${postSlug}.md`);
+        const response = await fetch(`${basePath}/blog/posts/${postSlug}.md`);
         const markdown = await response.text();
         
         const [, frontMatter, content] = markdown.split('---');
@@ -35,7 +36,7 @@ async function loadPost() {
         
         const backButton = document.createElement('button');
         backButton.className = 'pages-button back-button';
-        backButton.onclick = () => window.location.href = '/blog/';
+        backButton.onclick = () => window.location.href = `${basePath}/blog/`;
         backButton.textContent = 'Back to Blog';
         blogHeader.appendChild(backButton);
         
