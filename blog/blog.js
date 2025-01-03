@@ -87,7 +87,7 @@ async function loadBlogPosts() {
                 <div class="post-content">
                     <h2>${post.meta.title}</h2>
                     <p>${post.meta.summary}</p>
-                    <a href="./post.html?post=${slug}" class="read-more">Read More →</a>
+                    <a href="/blog/post.html?post=${slug}" class="read-more">Read More →</a>
                 </div>
             `;
             
