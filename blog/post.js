@@ -28,7 +28,7 @@ async function loadPost() {
             return;
         }
 
-        const url = `/blog/posts/${postSlug}.md`;
+        const url = `../blog/posts/${postSlug}.md`;
         console.log('Trying to fetch post:', url);
         const response = await fetch(url);
         

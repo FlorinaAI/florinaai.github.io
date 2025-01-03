@@ -33,7 +33,7 @@ async function getMarkdownFiles() {
         
         while (true) {
             try {
-                const url = `/blog/posts/${index}.md`;
+                const url = `../blog/posts/${index}.md`;
                 console.log('Trying to fetch:', url);
                 const response = await fetch(url);
                 
@@ -72,7 +72,7 @@ async function loadBlogPosts() {
         
         for (const file of files) {
             try {
-                const url = `/blog/posts/${file}`;
+                const url = `../blog/posts/${file}`;
                 console.log('Loading post:', url);
                 const response = await fetch(url);
                 
