@@ -23,11 +23,9 @@ async function getMarkdownFiles() {
         const files = [];
         let index = 1;
         
-        const basePath = window.location.pathname.includes('github.io') ? 'florinaai.github.io' : '';
-        
         while (true) {
             try {
-                const response = await fetch(`${basePath}/blog/posts/${index}.md`);
+                const response = await fetch(`posts/${index}.md`);
                 if (!response.ok) break;
                 files.push(`${index}.md`);
                 index++;
@@ -50,11 +48,10 @@ async function loadBlogPosts() {
     try {
         const files = await getMarkdownFiles();
         const loadedPosts = [];
-        const basePath = window.location.pathname.includes('github.io') ? 'florinaai.github.io' : '';
         
         for (const file of files) {
             try {
-                const response = await fetch(`${basePath}/blog/posts/${file}`);
+                const response = await fetch(`posts/${file}`);
                 if (response.ok) {
                     const markdown = await response.text();
                     const [, frontMatter, content] = markdown.split('---');
@@ -90,7 +87,7 @@ async function loadBlogPosts() {
                 <div class="post-content">
                     <h2>${post.meta.title}</h2>
                     <p>${post.meta.summary}</p>
-                    <a href="${basePath}/blog/post.html?post=${slug}" class="read-more">Read More →</a>
+                    <a href="post.html?post=${slug}" class="read-more">Read More →</a>
                 </div>
             `;
             
