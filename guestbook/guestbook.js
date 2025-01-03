@@ -1,6 +1,6 @@
 const GITHUB_OWNER = 'florinaai';
 const GITHUB_REPO = 'florinaai.github.io';
-const ISSUE_NUMBER = '1';
+const ISSUE_NUMBER = '2';
 
 const md = window.markdownit({
     html: true,

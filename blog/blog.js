@@ -25,7 +25,7 @@ async function getMarkdownFiles() {
         
         while (true) {
             try {
-                const response = await fetch(`./posts/${index}.md`);
+                const response = await fetch(`/blog/posts/${index}.md`);
                 if (!response.ok) break;
                 files.push(`${index}.md`);
                 index++;
@@ -51,7 +51,7 @@ async function loadBlogPosts() {
         
         for (const file of files) {
             try {
-                const response = await fetch(`./posts/${file}`);
+                const response = await fetch(`/blog/posts/${file}`);
                 if (response.ok) {
                     const markdown = await response.text();
                     const [, frontMatter, content] = markdown.split('---');

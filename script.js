@@ -1,11 +1,9 @@
-// Theme Toggle Functionality
 const themeToggle = document.getElementById('themeToggle');
 const body = document.body;
 const html = document.documentElement;
 
 html.classList.add('dark-mode-transition');
 
-// Theme initialization
 document.addEventListener('DOMContentLoaded', () => {
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme === 'dark') {
@@ -18,12 +16,10 @@ document.addEventListener('DOMContentLoaded', () => {
         html.classList.remove('dark-mode-transition');
     }, 100);
     
-    // Initial data fetch
     fetchDataAndUpdateAvatar();
     updateTimePassed();
 });
 
-// Theme toggle event listener
 themeToggle.addEventListener('click', () => {
     body.classList.toggle('dark-mode');
     
@@ -36,7 +32,6 @@ themeToggle.addEventListener('click', () => {
     }
 });
 
-// Discord Status and Avatar Update
 async function fetchDataAndUpdateAvatar() {
     try {
         const userId = '335882105181569024';
@@ -75,7 +70,6 @@ async function fetchDataAndUpdateAvatar() {
     }
 }
 
-// Time Update Function
 function updateTimePassed() {
     const startDate = new Date('2002-02-24T12:40:00Z'); 
     const currentDate = new Date();
@@ -95,6 +89,5 @@ function updateTimePassed() {
     `;
 }
 
-// Update intervals
 setInterval(fetchDataAndUpdateAvatar, 30000);
 setInterval(updateTimePassed, 1000);

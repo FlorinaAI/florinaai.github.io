@@ -16,11 +16,11 @@ async function loadPost() {
         const postSlug = urlParams.get('post');
         
         if (!postSlug) {
-            window.location.href = './';
+            window.location.href = '/blog/';
             return;
         }
 
-        const response = await fetch(`./posts/${postSlug}.md`);
+        const response = await fetch(`/blog/posts/${postSlug}.md`);
         const markdown = await response.text();
         
         const [, frontMatter, content] = markdown.split('---');
@@ -35,7 +35,7 @@ async function loadPost() {
         
         const backButton = document.createElement('button');
         backButton.className = 'pages-button back-button';
-        backButton.onclick = () => window.location.href = './';
+        backButton.onclick = () => window.location.href = '/blog/';
         backButton.textContent = 'Back to Blog';
         blogHeader.appendChild(backButton);
         
@@ -68,7 +68,7 @@ async function loadPost() {
         
     } catch (error) {
         console.error('Error loading post:', error);
-        window.location.href = './';
+        window.location.href = '/blog/';
     }
 }
 

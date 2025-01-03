@@ -10,7 +10,6 @@
     --body-bg: url('../src/images/ree.jpg');
 }
 
-/* Dark mode transition control */
 html.dark-mode-transition,
 html.dark-mode-transition * {
     transition: none !important;
@@ -317,7 +316,6 @@ body::after {
     object-fit: cover;
 }
 
-/* Back to Home button style */
 .back-button {
     position: absolute !important;
     left: 20px !important;
@@ -326,7 +324,6 @@ body::after {
     min-width: 150px !important;
 }
 
-/* Dark Mode Toggle Button */
 .theme-toggle {
     position: fixed;
     top: 40px;
