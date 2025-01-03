@@ -14,7 +14,7 @@ async function loadPost() {
     try {
         const urlParams = new URLSearchParams(window.location.search);
         const postSlug = urlParams.get('post');
-        const basePath = window.location.pathname.includes('github.io') ? '/florinaai.github.io' : '';
+        const basePath = window.location.pathname.includes('github.io') ? 'florinaai.github.io' : '';
         
         if (!postSlug) {
             window.location.href = `${basePath}/blog/`;

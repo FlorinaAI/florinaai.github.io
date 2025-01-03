@@ -23,7 +23,7 @@ async function getMarkdownFiles() {
         const files = [];
         let index = 1;
         
-        const basePath = window.location.pathname.includes('github.io') ? '/florinaai.github.io' : '';
+        const basePath = window.location.pathname.includes('github.io') ? 'florinaai.github.io' : '';
         
         while (true) {
             try {
@@ -50,7 +50,7 @@ async function loadBlogPosts() {
     try {
         const files = await getMarkdownFiles();
         const loadedPosts = [];
-        const basePath = window.location.pathname.includes('github.io') ? '/florinaai.github.io' : '';
+        const basePath = window.location.pathname.includes('github.io') ? 'florinaai.github.io' : '';
         
         for (const file of files) {
             try {
