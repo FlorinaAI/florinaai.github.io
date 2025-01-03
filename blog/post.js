@@ -14,13 +14,15 @@ async function loadPost() {
     try {
         const urlParams = new URLSearchParams(window.location.search);
         const postSlug = urlParams.get('post');
+        const isGitHubPages = window.location.hostname.includes('github.io');
+        const basePath = isGitHubPages ? '/florinaai.github.io/blog' : '';
         
         if (!postSlug) {
-            window.location.href = './';
+            window.location.href = isGitHubPages ? `${basePath}/` : './';
             return;
         }
 
-        const response = await fetch(`posts/${postSlug}.md`);
+        const response = await fetch(`${basePath}/posts/${postSlug}.md`);
         const markdown = await response.text();
         
         const [, frontMatter, content] = markdown.split('---');
@@ -35,7 +37,7 @@ async function loadPost() {
         
         const backButton = document.createElement('button');
         backButton.className = 'pages-button back-button';
-        backButton.onclick = () => window.location.href = './';
+        backButton.onclick = () => window.location.href = isGitHubPages ? `${basePath}/` : './';
         backButton.textContent = 'Back to Blog';
         blogHeader.appendChild(backButton);
         

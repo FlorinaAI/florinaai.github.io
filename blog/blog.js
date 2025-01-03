@@ -23,9 +23,12 @@ async function getMarkdownFiles() {
         const files = [];
         let index = 1;
         
+        const isGitHubPages = window.location.hostname.includes('github.io');
+        const basePath = isGitHubPages ? '/florinaai.github.io/blog' : '';
+        
         while (true) {
             try {
-                const response = await fetch(`posts/${index}.md`);
+                const response = await fetch(`${basePath}/posts/${index}.md`);
                 if (!response.ok) break;
                 files.push(`${index}.md`);
                 index++;
@@ -48,10 +51,12 @@ async function loadBlogPosts() {
     try {
         const files = await getMarkdownFiles();
         const loadedPosts = [];
+        const isGitHubPages = window.location.hostname.includes('github.io');
+        const basePath = isGitHubPages ? '/florinaai.github.io/blog' : '';
         
         for (const file of files) {
             try {
-                const response = await fetch(`posts/${file}`);
+                const response = await fetch(`${basePath}/posts/${file}`);
                 if (response.ok) {
                     const markdown = await response.text();
                     const [, frontMatter, content] = markdown.split('---');
