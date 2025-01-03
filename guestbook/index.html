@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Florina's Guestbook</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="guestbook.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.2.0/github-markdown.min.css">
+    <link rel="icon" type="image/gif" href="../src/images/fff.gif">
+</head>
+<body>
+    <button id="themeToggle" class="theme-toggle">🌙</button>
+    <div class="container">
+        <div class="center-card glass-card">
+            <div class="guestbook-header">
+                <button class="pages-button back-button" onclick="window.location.href='../'">Back to Home</button>
+                <h1 class="guestbook-title">guestbook ♡</h1>
+                <p class="guestbook-info">Leave a message for me on GitHub! Your message will appear here after you post it.</p>
+                <a href="#" target="_blank" class="github-link">
+                    <button class="pages-button">Create Message on GitHub ♡</button>
+                </a>
+            </div>
+            <div id="guestbook-messages" class="guestbook-messages">
+              
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/markdown-it/dist/markdown-it.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/markdown-it-emoji/dist/markdown-it-emoji.min.js"></script>
+    <script src="../script.js"></script>
+    <script src="guestbook.js"></script>
+</body>
+</html>

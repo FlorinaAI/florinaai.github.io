@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Favorite Videos</title>
+    <style>
+        /* Sayfa yüklenirken dark mode kontrolü */
+        html.dark-mode-transition,
+        html.dark-mode-transition * {
+            transition: none !important;
+        }
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../style.css">
+    <link rel="stylesheet" href="../gallery.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="icon" type="image/gif" href="../../src/images/fff.gif">
+</head>
+<body>
+    <button id="themeToggle" class="theme-toggle">🌙</button>
+    <div class="container">
+        <div class="gallery-container">
+            <div class="gallery-card">
+                <div class="gallery-header">
+                    <button class="pages-button" onclick="window.location.href='../'">Back to Gallery</button>
+                    <h1 class="gallery-title">videos ♡</h1>
+                </div>
+                <div class="gallery-content">
+                    <div class="video-item">
+                        <a href="koishi-project/">
+                            <img src="../../src/images/Koishi-Project.png" alt="Koishi Project" class="video-thumbnail">
+                            <div class="video-title">Koishi Project</div>
+                        </a>
+                    </div>
+                    <div class="video-item">
+                        <a href="tiny-little-adiantum/">
+                            <img src="../../src/images/tiny.png" alt="Tiny Little Adiantum" class="video-thumbnail">
+                            <div class="video-title">Tiny Little Adiantum</div>
+                        </a>
+                    </div>
+                    <div class="video-item">
+                        <a href="crime-and-punishment/">
+                            <img src="../../src/images/ado.png" alt="Crime and Punishment" class="video-thumbnail">
+                            <div class="video-title">Crime and Punishment</div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../../script.js"></script>
+</body>
+</html> 

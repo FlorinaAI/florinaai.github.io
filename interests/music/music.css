@@ -1,0 +1,166 @@
+.music-header {
+    text-align: center;
+    margin-bottom: 2rem;
+    padding: 2rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+    width: 100%;
+}
+
+.music-title {
+    font-size: 2.5rem;
+    margin: 1rem 0;
+    color: #fff;
+    text-shadow: 0 0 10px rgba(255, 192, 203, 0.8);
+}
+
+.center-card {
+    width: 80vw !important;
+    max-width: 1200px !important;
+    min-height: 70vh;
+    margin-top: 2rem !important;
+}
+
+.music-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 180px);
+    gap: 20px;
+    padding: 20px;
+    margin: 0 auto;
+    justify-content: center;
+}
+
+.artist-card {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 12px;
+    text-align: center;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.artist-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px rgba(255, 192, 203, 0.3);
+    border-color: rgba(255, 192, 203, 0.4);
+}
+
+.artist-image {
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.artist-name {
+    color: white;
+    font-size: 1.1em;
+    margin: 8px 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.music-list {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(200px, 1fr));
+    gap: 25px;
+    padding: 20px;
+    width: fit-content;
+    margin: 40px auto 0;
+    justify-content: center;
+}
+
+.music-card {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 15px;
+    text-align: center;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    width: 220px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.music-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 10px 25px rgba(255, 192, 203, 0.3);
+    border-color: rgba(255, 192, 203, 0.4);
+}
+
+.music-name {
+    color: white;
+    font-size: 1.3em;
+    margin: 10px 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.music-genre {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.9em;
+    margin: 3px;
+    padding: 5px 10px;
+    background: rgba(255, 192, 203, 0.1);
+    border-radius: 20px;
+    display: inline-block;
+}
+
+.music-image {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 1200px) {
+    .music-list {
+        grid-template-columns: repeat(3, 220px);
+    }
+}
+
+@media (max-width: 900px) {
+    .music-list {
+        grid-template-columns: repeat(2, 220px);
+        gap: 20px;
+        padding: 15px;
+    }
+}
+
+@media (max-width: 600px) {
+    .music-list {
+        grid-template-columns: 220px;
+        gap: 15px;
+        padding: 12px;
+    }
+    
+    .music-card {
+        width: 100%;
+    }
+    
+    .music-image {
+        height: 160px;
+    }
+    
+    .music-name {
+        font-size: 1.2em;
+    }
+    
+    .music-genre {
+        font-size: 0.8em;
+    }
+}
+
+@media (max-width: 480px) {
+    .music-grid {
+        grid-template-columns: 180px;
+    }
+    
+    .artist-card {
+        margin: 0 auto;
+    }
+} 

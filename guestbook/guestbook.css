@@ -1,0 +1,286 @@
+.guestbook-header {
+    text-align: center;
+    margin-bottom: 2rem;
+    padding: 2rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+    width: 100%;
+}
+
+.guestbook-title {
+    font-size: 2.5rem;
+    margin: 1rem 0;
+    color: #fff;
+    text-shadow: 0 0 10px rgba(255, 192, 203, 0.8);
+}
+
+.guestbook-info {
+    color: #fff;
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+}
+
+.github-link {
+    text-decoration: none;
+    display: inline-block;
+}
+
+.github-link .pages-button {
+    width: auto;
+    min-width: 250px;
+}
+
+.container {
+    min-height: 100vh;
+    padding: 6rem 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.center-card {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 3rem;
+}
+
+.guestbook-messages {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.message {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.message:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+    border-color: rgba(255, 183, 197, 0.3);
+}
+
+.message-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.message-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 183, 197, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.message:hover .message-avatar {
+    transform: scale(1.1);
+    border-color: rgba(255, 183, 197, 0.6);
+}
+
+.message-info {
+    flex-grow: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.message-author {
+    color: #ff6b9d;
+    font-weight: bold;
+    font-size: 1.1rem;
+    text-shadow: 0 0 8px rgba(255, 107, 157, 0.4);
+    letter-spacing: 0.5px;
+}
+
+.message-date {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.9rem;
+}
+
+.message-content {
+    color: #fff;
+    line-height: 1.6;
+    overflow-wrap: break-word;
+    padding: 10px 0;
+}
+
+.message-form {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+}
+
+#message-input {
+    width: 100%;
+    max-width: 600px;
+    height: 100px;
+    padding: 15px;
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(3px);
+    color: white;
+    font-family: 'Sour Gummy', sans-serif;
+    font-size: 16px;
+    resize: vertical;
+}
+
+#message-input::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+#message-input-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.markdown-body {
+    color: #fff !important;
+    background: transparent !important;
+    font-family: 'Sour Gummy', sans-serif !important;
+    font-size: 1rem;
+    line-height: 1.7;
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+    color: #ffb7c5 !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 0.3em;
+    margin: 1.5em 0 1em;
+    text-shadow: 0 0 5px rgba(255, 183, 197, 0.3);
+}
+
+.markdown-body a {
+    color: #ff9ec6 !important;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    padding: 0.1em 0.3em;
+    border-radius: 4px;
+}
+
+.markdown-body a:hover {
+    color: #ffb7c5 !important;
+    text-decoration: none;
+    background: rgba(255, 183, 197, 0.1);
+}
+
+.markdown-body img {
+    max-width: 100%;
+    border-radius: 12px;
+    margin: 1em 0;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.markdown-body img:hover {
+    transform: scale(1.01);
+    border-color: rgba(255, 183, 197, 0.3);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.markdown-body pre,
+.markdown-body code {
+    background: rgba(0, 0, 0, 0.2) !important;
+    border-radius: 8px;
+    font-family: 'Fira Code', monospace;
+    font-size: 0.9em;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.markdown-body pre {
+    padding: 1em;
+    overflow-x: auto;
+    margin: 1em 0;
+}
+
+.markdown-body code {
+    padding: 0.2em 0.4em;
+}
+
+.markdown-body blockquote {
+    border-left: 4px solid #ffb7c5;
+    margin: 1em 0;
+    padding: 0.5em 1em;
+    color: rgba(255, 255, 255, 0.8);
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 0 8px 8px 0;
+}
+
+.markdown-body ul,
+.markdown-body ol {
+    padding-left: 2em;
+    margin: 1em 0;
+}
+
+.markdown-body li + li {
+    margin-top: 0.5em;
+}
+
+.markdown-body table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 1em 0;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.markdown-body th,
+.markdown-body td {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 0.75em 1em;
+}
+
+.markdown-body th {
+    background: rgba(255, 255, 255, 0.1);
+    color: #ffb7c5;
+    font-weight: bold;
+}
+
+.markdown-body tr:nth-child(even) {
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.markdown-body tr:hover {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.error-message {
+    color: #ff6b6b;
+    text-align: center;
+    padding: 2em;
+    background: rgba(255, 107, 107, 0.1);
+    border: 1px solid rgba(255, 107, 107, 0.2);
+    border-radius: 12px;
+    margin: 2em auto;
+    max-width: 600px;
+}
+
+.error-message small {
+    display: block;
+    margin-top: 0.5em;
+    opacity: 0.8;
+}

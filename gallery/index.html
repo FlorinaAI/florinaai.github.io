@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Florina's Gallery</title>
+    <style>
+        /* Sayfa yüklenirken dark mode kontrolü */
+        html.dark-mode-transition,
+        html.dark-mode-transition * {
+            transition: none !important;
+        }
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="gallery.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="icon" type="image/gif" href="../src/images/fff.gif">
+</head>
+<body>
+    <button id="themeToggle" class="theme-toggle">🌙</button>
+    <div class="container">
+        <div class="gallery-container">
+            <div class="gallery-card">
+                <div class="gallery-header">
+                    <button class="pages-button" onclick="window.location.href='../'">Back to Home</button>
+                    <h1 class="gallery-title">gallery ♡</h1>
+                </div>
+                <p class="gallery-info">Welcome to my gallery! Here you can find my photos, videos, and GIFs collection.</p>
+                <div class="gallery-buttons">
+                    <a href="photos/" class="gallery-button">
+                        <i class="fas fa-camera"></i>
+                        <span>Photos</span>
+                    </a>
+                    <a href="videos/" class="gallery-button">
+                        <i class="fas fa-video"></i>
+                        <span>Videos</span>
+                    </a>
+                    <a href="gifs/" class="gallery-button">
+                        <i class="fas fa-images"></i>
+                        <span>GIFs</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../script.js"></script>
+</body>
+</html>

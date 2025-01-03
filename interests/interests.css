@@ -1,0 +1,80 @@
+.interest-box {
+    background: var(--bg-primary);
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
+    border-radius: 20px;
+    padding: 2rem;
+    max-width: 800px;
+    margin: 2rem auto;
+    box-shadow: 0 8px 32px var(--shadow-color);
+    border: 1px solid var(--border-color);
+}
+
+.content-section {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.text-section {
+    flex: 1;
+}
+
+.text-section h1 {
+    color: var(--text-primary);
+    font-size: 24px;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px var(--shadow-color);
+    margin-bottom: 1rem;
+    font-family: 'Sour Gummy', sans-serif;
+}
+
+.text-section p {
+    color: var(--text-primary);
+    font-size: 20px;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px var(--shadow-color);
+    margin-bottom: 1rem;
+    font-family: 'Sour Gummy', sans-serif;
+}
+
+.gif-section {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.gif-section img {
+    max-width: 100%;
+    border-radius: 10px;
+}
+
+.button-section {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.interest-nav-button {
+    padding: 15px 30px;
+    font-size: 1.2em;
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Sour Gummy', sans-serif;
+    box-shadow: 0 4px 15px var(--shadow-color);
+}
+
+.interest-nav-button:hover {
+    transform: scale(1.05);
+    background: var(--bg-primary);
+    box-shadow: 0 6px 20px var(--hover-shadow);
+}
+
+.interest-nav-button:active {
+    transform: scale(0.95);
+}

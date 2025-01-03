@@ -1,0 +1,345 @@
+/* Light mode varsayılan değerleri */
+:root {
+    --gallery-bg-primary: rgba(230, 143, 172, 0.2);
+    --gallery-bg-secondary: rgba(255, 255, 255, 0.1);
+    --gallery-border: rgba(255, 255, 255, 0.2);
+    --gallery-shadow: rgba(0, 0, 0, 0.1);
+    --gallery-hover-shadow: rgba(0, 0, 0, 0.15);
+    --gallery-text-shadow: rgba(255, 107, 157, 0.4);
+    --gallery-title-shadow: rgba(255, 192, 203, 0.8);
+}
+
+/* Dark mode için özel kontrol */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --gallery-bg-primary: rgba(45, 45, 45, 0.9);
+        --gallery-bg-secondary: rgba(30, 30, 30, 0.8);
+        --gallery-border: rgba(70, 70, 70, 0.3);
+        --gallery-shadow: rgba(0, 0, 0, 0.2);
+        --gallery-hover-shadow: rgba(0, 0, 0, 0.25);
+        --gallery-text-shadow: rgba(0, 0, 0, 0.4);
+        --gallery-title-shadow: rgba(0, 0, 0, 0.8);
+    }
+}
+
+/* Dark mode class ile kontrol */
+body.dark-mode {
+    --gallery-bg-primary: rgba(45, 45, 45, 0.9);
+    --gallery-bg-secondary: rgba(30, 30, 30, 0.8);
+    --gallery-border: rgba(70, 70, 70, 0.3);
+    --gallery-shadow: rgba(0, 0, 0, 0.2);
+    --gallery-hover-shadow: rgba(0, 0, 0, 0.25);
+    --gallery-text-shadow: rgba(255, 107, 157, 0.4);
+    --gallery-title-shadow: rgba(255, 192, 203, 0.8);
+}
+
+/* Light mode class ile kontrol */
+body:not(.dark-mode) {
+    --gallery-bg-primary: rgba(230, 143, 172, 0.2);
+    --gallery-bg-secondary: rgba(255, 255, 255, 0.1);
+    --gallery-border: rgba(255, 255, 255, 0.2);
+    --gallery-shadow: rgba(0, 0, 0, 0.1);
+    --gallery-hover-shadow: rgba(0, 0, 0, 0.15);
+    --gallery-text-shadow: rgba(255, 107, 157, 0.4);
+    --gallery-title-shadow: rgba(255, 192, 203, 0.8);
+}
+
+.gallery-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.gallery-card {
+    width: 900px !important;
+    height: auto !important;
+    padding: 30px !important;
+    position: relative !important;
+    margin: 0 auto !important;
+    background: var(--gallery-bg-primary, var(--bg-primary));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid var(--gallery-border, var(--border-color));
+    border-radius: 15px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px var(--gallery-shadow, var(--shadow-color));
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.container {
+    padding: 0 !important;
+    margin: 0 !important;
+    height: 100vh !important;
+    overflow: hidden !important;
+}
+
+.gallery-card:hover {
+    border-color: var(--gallery-border, var(--border-color));
+    box-shadow: 0 8px 12px var(--gallery-hover-shadow, var(--hover-shadow));
+}
+
+.gallery-header {
+    text-align: center;
+    margin-bottom: 2rem;
+    padding: 2rem 3rem;
+    border-bottom: 1px solid var(--border-color);
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+}
+
+.gallery-title {
+    font-size: 2.5rem;
+    margin: 0;
+    color: #fff;
+    text-shadow: 0 0 10px rgba(255, 192, 203, 0.8);
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: auto;
+    white-space: nowrap;
+    font-family: 'Sour Gummy', sans-serif;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+}
+
+body.dark-mode .gallery-title {
+    color: #fff;
+    text-shadow: 0 0 10px rgba(255, 192, 203, 0.8);
+}
+
+.gallery-info {
+    color: var(--text-primary);
+    font-size: 1.1rem;
+    margin: 0;
+    margin-top: -1rem;
+    margin-bottom: 2rem;
+    font-family: 'Sour Gummy', sans-serif;
+    text-align: center;
+    text-shadow: 0 0 8px var(--gallery-text-shadow);
+    letter-spacing: 0.5px;
+    line-height: 1.6;
+    transition: all 0.3s ease;
+}
+
+.gallery-buttons {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 0 20px;
+}
+
+.gallery-button {
+    width: 150px;
+    height: 150px;
+    border-radius: 15px;
+    background: var(--gallery-bg-secondary, var(--bg-secondary));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid var(--gallery-border, var(--border-color));
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    box-shadow: 0 4px 6px var(--gallery-shadow, var(--shadow-color));
+}
+
+.gallery-button:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 12px 40px var(--gallery-hover-shadow, var(--hover-shadow));
+    background: var(--gallery-bg-primary, var(--bg-primary));
+    border-color: var(--gallery-border, var(--border-color));
+}
+
+.gallery-button i {
+    font-size: 1.1rem;
+    color: var(--text-primary);
+    margin-bottom: 10px;
+    text-shadow: 0 0 8px var(--gallery-text-shadow);
+    transition: all 0.3s ease;
+}
+
+.gallery-button span {
+    color: var(--text-primary);
+    font-size: 1.1rem;
+    font-family: 'Sour Gummy', sans-serif;
+    text-shadow: 0 0 8px var(--gallery-text-shadow);
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+}
+
+.gallery-header .pages-button {
+    position: relative !important;
+    z-index: 1;
+    margin: 0 !important;
+    width: auto !important;
+    min-width: 150px !important;
+    transform: translateY(-15px);
+    padding: 8px 15px !important;
+    font-size: 1.1rem !important;
+    font-family: 'Sour Gummy', sans-serif;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+    text-shadow: 0 0 8px var(--gallery-text-shadow);
+}
+
+.gallery-header .pages-button:hover {
+    transform: translateY(-17px);
+    box-shadow: 0 8px 12px var(--hover-shadow);
+    border-color: var(--border-color);
+}
+
+@media (max-width: 768px) {
+    .gallery-card {
+        width: 90% !important;
+        padding: 20px !important;
+    }
+    
+    .gallery-title {
+        font-size: 2rem;
+    }
+    
+    .gallery-button {
+        width: 130px;
+        height: 130px;
+    }
+}
+
+.gallery-content {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    padding: 20px;
+}
+
+.video-item {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    aspect-ratio: 16/9;
+    background: linear-gradient(135deg, #6e45e2 0%, #88d3ce 100%);
+    cursor: pointer;
+}
+
+.video-item a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+    position: relative;
+    z-index: 3;
+}
+
+.video-item:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 10px 20px var(--hover-shadow);
+}
+
+.video-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(110, 69, 226, 0.9) 0%, rgba(136, 211, 206, 0.9) 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 1;
+}
+
+.video-item:hover::before {
+    opacity: 0.3;
+}
+
+.video-thumbnail {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+}
+
+.video-title {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 15px;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+    color: var(--text-primary);
+    font-family: 'Sour Gummy', sans-serif;
+    font-size: 1.2rem;
+    text-align: center;
+    z-index: 2;
+    opacity: 1;
+    transition: all 0.3s ease;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.video-item:hover .video-title {
+    padding-bottom: 20px;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+}
+
+.video-content {
+    padding: 20px;
+    max-width: 100%;
+}
+
+.video-content video {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px var(--shadow-color);
+}
+
+/* Responsive adjustments for video gallery */
+@media (max-width: 1200px) {
+    .gallery-content {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .gallery-content {
+        grid-template-columns: 1fr;
+    }
+}
+
+.video-item:active {
+    transform: scale(0.98);
+    box-shadow: 0 5px 10px var(--shadow-color);
+}
+
+.video-wrapper {
+    position: relative;
+    padding-bottom: 56.25%; 
+    height: 0;
+    overflow: hidden;
+    max-width: 100%;
+}
+
+.video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
