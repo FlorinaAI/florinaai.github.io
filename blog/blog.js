@@ -30,10 +30,17 @@ async function getMarkdownFiles() {
     try {
         const files = [];
         let index = 1;
+        const isGitHubPages = window.location.hostname.includes('github.io');
         
         while (true) {
             try {
-                const url = `../blog/posts/${index}.md`;
+                let url;
+                if (isGitHubPages) {
+                    url = `https://raw.githubusercontent.com/FlorinaAI/florinaai.github.io/main/blog/posts/${index}.md`;
+                } else {
+                    url = `posts/${index}.md`;
+                }
+                
                 console.log('Trying to fetch:', url);
                 const response = await fetch(url);
                 
@@ -69,10 +76,17 @@ async function loadBlogPosts() {
     try {
         const files = await getMarkdownFiles();
         const loadedPosts = [];
+        const isGitHubPages = window.location.hostname.includes('github.io');
         
         for (const file of files) {
             try {
-                const url = `../blog/posts/${file}`;
+                let url;
+                if (isGitHubPages) {
+                    url = `https://raw.githubusercontent.com/FlorinaAI/florinaai.github.io/main/blog/posts/${file}`;
+                } else {
+                    url = `posts/${file}`;
+                }
+                
                 console.log('Loading post:', url);
                 const response = await fetch(url);
                 

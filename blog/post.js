@@ -22,13 +22,20 @@ async function loadPost() {
     try {
         const urlParams = new URLSearchParams(window.location.search);
         const postSlug = urlParams.get('post');
+        const isGitHubPages = window.location.hostname.includes('github.io');
         
         if (!postSlug) {
             window.location.href = './';
             return;
         }
 
-        const url = `../blog/posts/${postSlug}.md`;
+        let url;
+        if (isGitHubPages) {
+            url = `https://raw.githubusercontent.com/FlorinaAI/florinaai.github.io/main/blog/posts/${postSlug}.md`;
+        } else {
+            url = `posts/${postSlug}.md`;
+        }
+        
         console.log('Trying to fetch post:', url);
         const response = await fetch(url);
         
