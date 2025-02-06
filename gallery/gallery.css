@@ -1,4 +1,3 @@
-/* Light mode varsayılan değerleri */
 :root {
     --gallery-bg-primary: rgba(230, 143, 172, 0.2);
     --gallery-bg-secondary: rgba(255, 255, 255, 0.1);
@@ -9,7 +8,6 @@
     --gallery-title-shadow: rgba(255, 192, 203, 0.8);
 }
 
-/* Dark mode için özel kontrol */
 @media (prefers-color-scheme: dark) {
     :root {
         --gallery-bg-primary: rgba(45, 45, 45, 0.9);
@@ -22,7 +20,6 @@
     }
 }
 
-/* Dark mode class ile kontrol */
 body.dark-mode {
     --gallery-bg-primary: rgba(45, 45, 45, 0.9);
     --gallery-bg-secondary: rgba(30, 30, 30, 0.8);
@@ -33,7 +30,6 @@ body.dark-mode {
     --gallery-title-shadow: rgba(255, 192, 203, 0.8);
 }
 
-/* Light mode class ile kontrol */
 body:not(.dark-mode) {
     --gallery-bg-primary: rgba(230, 143, 172, 0.2);
     --gallery-bg-secondary: rgba(255, 255, 255, 0.1);
@@ -53,10 +49,8 @@ body:not(.dark-mode) {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start;
-    overflow-y: auto;
-    padding-top: 100px;
-    padding-bottom: 100px;
+    justify-content: center;
+    overflow: hidden;
 }
 
 .gallery-card {
@@ -72,7 +66,8 @@ body:not(.dark-mode) {
     border-radius: 15px;
     transition: all 0.3s ease;
     box-shadow: 0 4px 6px var(--gallery-shadow);
-    overflow-y: visible;
+    max-height: 90vh;
+    overflow-y: auto;
 }
 
 .container {
@@ -80,6 +75,18 @@ body:not(.dark-mode) {
     margin: 0 !important;
     height: 100vh !important;
     overflow: hidden !important;
+}
+
+.videos-page .gallery-container {
+    justify-content: flex-start;
+    overflow-y: auto;
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+
+.videos-page .gallery-card {
+    overflow-y: visible;
+    max-height: none;
 }
 
 .gallery-card:hover {
